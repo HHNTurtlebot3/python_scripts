@@ -162,4 +162,38 @@
     </inertial>
   </link>
 
+   <link name="realsense_link">
+    <visual>
+     <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
+    </visual>
+    <collision>
+      <origin xyz="0.003 0.065 0.007" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.012 0.132 0.020"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="camera_color_joint" type="fixed">
+    <origin xyz="0.005 0.018 0.013" rpy="-1.57 0 -1.57"/>
+    <parent link="realsense_link"/>
+    <child link="camera_color_frame"/>
+  </joint>
+  <link name="camera_color_frame"/>
+
+  <joint name="realsense_depth_joint" type="fixed">
+    <origin xyz="0.005 0.028 0.013" rpy="-1.57 0 -1.57"/>
+    <parent link="realsense_link"/>
+    <child link="camera_depth_frame"/>
+  </joint>
+  <link name="realsense_depth_frame"/>
+
+  <joint name="camera_depth_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+    <parent link="realsense_depth_frame"/>
+    <child link="camera_depth_optical_frame"/>
+  </joint>
+  <link name="camera_depth_optical_frame"/>
+
 </robot>
