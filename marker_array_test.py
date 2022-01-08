@@ -1,22 +1,18 @@
-#!/usr/bin/env python
-
-import roslib; roslib.load_manifest('visualization_marker_tutorials')
-from visualization_msgs.msg import Marker
-from visualization_msgs.msg import MarkerArray
 import rospy
 import math
+from visualization_msgs.msg import Marker, MarkerArray
 
 topic = 'visualization_marker_array'
-publisher = rospy.Publisher(topic, MarkerArray)
-
+publisher = rospy.Publisher(topic, MarkerArray, queue_size=1)
+ 
 rospy.init_node('register')
-
+ 
 markerArray = MarkerArray()
 
 count = 0
 MARKERS_MAX = 100
-
 while not rospy.is_shutdown():
+
     marker = Marker()
     marker.header.frame_id = "/base_link"
     marker.type = marker.SPHERE
