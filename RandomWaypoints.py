@@ -8,7 +8,6 @@ import random
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 
 def RandomWP():
-
     client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
     client.wait_for_server()
 
@@ -23,7 +22,8 @@ def RandomWP():
         else:
             OrderList.append(RandNum)
 
-    GoalVectors = {1:[1.8, 0.03], 2:[1.6, 0.2], 3:[1.5 ,0.9], 4:[-1.0, 0.6], 5:[1.0, 0.5]} 
+    #GoalVectors = {1:[1.8, 0.03], 2:[1.6, 0.2], 3:[1.5 ,0.9], 4:[-1.0, 0.6], 5:[1.0, 0.5]}
+    GoalVectors = {1:[0.6, 0.13], 2:[1.5, 0.31], 3:[1.8 ,1.65], 4:[-1.15, 2.3], 5:[-1, 2]} 
     TargetList = []
 
     while len(TargetList) < 5:       
